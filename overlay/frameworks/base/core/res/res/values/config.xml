@@ -82,7 +82,7 @@
     <integer name="config_notificationsBatteryLedOn">100</integer>
     <integer name="config_notificationsBatteryLedOff">6000</integer>
     <bool name="config_intrusiveNotificationLed">true</bool>
-    <bool name="config_unplugTurnsOnScreen">false</bool>
+    <bool name="config_unplugTurnsOnScreen">true</bool>
     <bool name="config_cellBroadcastAppLinks">true</bool>
     <bool name="config_sip_wifi_only">false</bool>
     <bool name="config_syncstorageengine_masterSyncAutomatically">false</bool>
