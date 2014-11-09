@@ -198,8 +198,6 @@ on post-fs-data
     mkdir /data/audio 0770 media audio
     chmod 2770 /data/audio
 
-    mkdir /data/.pabx 0770 system system
-
     # used by taimport
     mkdir /data/etc   0755 root root
 
@@ -406,17 +404,6 @@ service thermald /system/bin/thermald
     user root
     group root
 
-# frequency daemon - will be started by yuga_reconf
-service qcfqd /system/bin/qc-fqd
-    class late_start
-    disabled
-
-# reconfigure kernel-settings on-the-fly
-service yuga_reconf /system/bin/sh yuga_reconf.sh
-    class late_start
-    seclabel u:r:yuga_service:s0
-    oneshot
-
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/bugmailer.sh -v
     class main
@@ -435,22 +422,3 @@ service thermanager /system/bin/thermanager /system/etc/thermanager-conf.xml
     class main
     user root
     group root
-
-service yginstall /system/bin/sh /yuga_gapps.sh
-    class main
-    user root
-    group root
-    oneshot
-    seclabel u:r:recovery:s0
-    disabled
-
-# launched by on-init, continues if user does not wnt
-# to enter recovery
-service ygrecovery /sbin/busybox_static sh /yuga_recovery.sh
-    class main
-    user root
-    group root
-    oneshot
-    seclabel u:r:recovery:s0
-    disabled
-

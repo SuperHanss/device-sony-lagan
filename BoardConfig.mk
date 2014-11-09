@@ -1,3 +1,6 @@
+# inherit from Sony common
+include device/sony/common/BoardConfigCommon.mk
+
 PRODUCT_VENDOR_KERNEL_HEADERS := device/sony/lagan/kernel-headers
 
 TARGET_ARCH := arm
@@ -10,7 +13,7 @@ TARGET_CPU_SMP := true
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_NO_RADIOIMAGE := true
-TARGET_NO_RECOVERY := true
+TARGET_NO_RECOVERY := false
 TARGET_NO_KERNEL := false
 
 BOARD_KERNEL_BOOTIMG := true
@@ -56,6 +59,37 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
+
+# Custom boot
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+BOARD_CUSTOM_BOOTIMG_MK := device/sony/lagan/custombootimg.mk
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+
+TARGET_RECOVERY_FSTAB := device/sony/lagan/rootdir/fstab.sony
+RECOVERY_FSTAB_VERSION := 2
+
+# TWRP flags
+DEVICE_RESOLUTION := 1080x1920
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+RECOVERY_SDCARD_ON_DATA := true
+TW_HAS_NO_RECOVERY_PARTITION := true
+TW_FLASH_FROM_STORAGE := true
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_DEFAULT_EXTERNAL_STORAGE := true
+# TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_JB_CRYPTO := true
+TW_CRYPTO_FS_TYPE := "ext4"
+TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/msm_sdcc.1/by-name/userdata"
+TW_CRYPTO_MNT_POINT := "/data"
+TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,barrier=1,noauto_da_alloc,discard"
+TW_CRYPTO_FS_FLAGS := "0x00000406"
+TW_CRYPTO_KEY_LOC := "footer"
+TW_INCLUDE_FUSE_EXFAT := true
+TW_BOARD_CUSTOM_GRAPHICS := ../../../device/sony/lagan/recovery/twrpgraphics.c
+TW_BRIGHTNESS_PATH := /sys/devices/i2c-0/0-0036/leds/lm3533-lcd-bl/brightness
+TW_MAX_BRIGHTNESS := 255
+TW_NO_USB_STORAGE := true
 
 BOARD_SEPOLICY_DIRS += \
        device/sony/lagan/sepolicy
