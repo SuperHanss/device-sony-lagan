@@ -64,6 +64,10 @@ PRODUCT_PACKAGES += \
     libqdutils \
     libqdMetaData
 
+# Recovery
+PRODUCT_PACKAGES += \
+    extract_elf_ramdisk
+
 PRODUCT_PACKAGES += \
     charger_res_images \
     charger \
@@ -94,6 +98,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 SONY_ROOT = device/sony/lagan/rootdir
 PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/fstab.sony:root/fstab.sony \
+    $(SONY_ROOT)/fstab.sony:recovery/root/fstab.sony \
     $(SONY_ROOT)/init.sony.rc:root/init.sony.rc \
     $(SONY_ROOT)/init.sony.usb.rc:root/init.sony.usb.rc \
     $(SONY_ROOT)/system/etc/apns-conf.xml:system/etc/apns-conf.xml \
