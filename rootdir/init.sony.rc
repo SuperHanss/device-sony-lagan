@@ -68,7 +68,7 @@ on init
 
     # start recovery-switch script
     start ygrecovery
-    wait /dev/.recovery_aborted 9999999
+    wait /dev/.recovery_aborted 1
 
 
 
@@ -257,12 +257,6 @@ on post-fs-data
     # Allow QMUX daemon to assign port open wait time
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
 
-    # YGAPPS START
-    # our system should now be more-or-less ready, time to start our on-demand gapps installation
-    start yginstall
-    wait /dev/.yginstall_done 60
-    # YGAPPS END
-
     # start kickstart and co..
     class_start trimarea
 
@@ -435,14 +429,6 @@ service thermanager /system/bin/thermanager /system/etc/thermanager-conf.xml
     class main
     user root
     group root
-
-service yginstall /system/bin/sh /yuga_gapps.sh
-    class main
-    user root
-    group root
-    oneshot
-    seclabel u:r:recovery:s0
-    disabled
 
 # launched by on-init, continues if user does not want
 # to enter recovery
