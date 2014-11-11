@@ -66,10 +66,6 @@ on init
     write /sys/module/subsystem_restart/parameters/max_restarts 8
     write /sys/module/subsystem_restart/parameters/max_history_time 3600
 
-    # start recovery-switch script
-    start ygrecovery
-    wait /dev/.recovery_aborted 1
-
 
 
 on boot
@@ -429,14 +425,4 @@ service thermanager /system/bin/thermanager /system/etc/thermanager-conf.xml
     class main
     user root
     group root
-
-# launched by on-init, continues if user does not want
-# to enter recovery
-service ygrecovery /sbin/busybox_static sh /yuga_recovery.sh
-    class main
-    user root
-    group root
-    oneshot
-    seclabel u:r:recovery:s0
-    disabled
 
