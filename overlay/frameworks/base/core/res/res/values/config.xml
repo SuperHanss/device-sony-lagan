@@ -99,11 +99,6 @@
     <!-- Flag indicating whether the we should enable the automatic brightness in Settings. -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-    <!-- Screen brightness used to dim the screen when the user activity
-         timeout expires.  May be less than the minimum allowed brightness setting
-         that can be set by the user. -->
-    <integer name="config_screenBrightnessDim">1</integer>
-
     <!-- Enable backlight settings down to 1, testing indicates it works on YUGA & Odin -->
     <!-- Allowing for this option means that reading a book in perfect darkness will work fine -->
     <integer name="config_screenBrightnessSettingMinimum">1</integer>
@@ -127,11 +122,11 @@
         <item>50</item>
         <item>100</item>
         <item>150</item>
-        <item>320</item>
-        <item>480</item>
-        <item>960</item>
-        <item>1240</item>
-        <item>1520</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>600</item>
+        <item>900</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -139,20 +134,20 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>8</item>    <!--   0 -   3 -->
-        <item>11</item>   <!--   3 -   6 -->
-        <item>22</item>   <!--   6 -  12 -->
-        <item>38</item>   <!--  12 -  19 -->
-        <item>47</item>   <!--  19 -  25 -->
-        <item>63</item>   <!--  25 -  50 -->
-        <item>85</item>   <!--  50 - 100 -->
-        <item>94</item>   <!-- 100 - 150 -->
-        <item>110</item>  <!-- 150 - 320 -->
-        <item>126</item>  <!-- 320 - 480 -->
-        <item>162</item>  <!-- 480 - 960 -->
-        <item>196</item>  <!-- 960 - 1240 -->
-        <item>250</item>  <!-- 1240 - 1520 -->
-        <item>255</item>  <!-- 1520+ -->
+        <item>1</item>    <!-- 0-3 -->
+        <item>11</item>   <!-- 3-6 -->
+        <item>22</item>   <!-- 6-12 -->
+        <item>38</item>   <!-- 12-19 -->
+        <item>47</item>   <!-- 19-25 -->
+        <item>63</item>   <!-- 25-50 -->
+        <item>85</item>   <!-- 50-100 -->
+        <item>94</item>   <!-- 100-150 -->
+        <item>110</item>  <!-- 150-200 -->
+        <item>126</item>  <!-- 200-300 -->
+        <item>162</item>  <!-- 300-400 -->
+        <item>196</item>  <!-- 400-600 -->
+        <item>250</item>  <!-- 600-900 -->
+        <item>255</item>  <!-- 900+ -->
     </integer-array>
 
     <!-- Enable lockscreen translucent decor by default -->
