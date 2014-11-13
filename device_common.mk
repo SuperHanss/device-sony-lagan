@@ -85,6 +85,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
+# Override old AOSP audio defaults with new sounds
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.ringtone=Titania.ogg \
+    ro.config.notification_sound=Tethys.ogg \
+    ro.config.alarm_alert=Oxygen.ogg
+
 # Platform specific files
 #
 SONY_ROOT = device/sony/lagan/rootdir
