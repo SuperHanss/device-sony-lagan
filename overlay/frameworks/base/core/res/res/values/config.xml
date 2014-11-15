@@ -86,7 +86,6 @@
     <bool name="config_cellBroadcastAppLinks">true</bool>
     <bool name="config_sip_wifi_only">false</bool>
     <bool name="config_syncstorageengine_masterSyncAutomatically">false</bool>
-    <string name="default_wallpaper_component" translatable="false">com.android.phasebeam/.PhaseBeamWallpaper</string>
     <integer-array name="config_sms_enabled_single_shift_tables">
         <item>1</item>
     </integer-array>
