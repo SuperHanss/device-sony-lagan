@@ -115,6 +115,7 @@ PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/system/usr/keylayout/pmic8xxx_pwrkey.kcm:system/usr/keylayout/pmic8xxx_pwrkey.kcm \
     $(SONY_ROOT)/system/usr/keylayout/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
     $(SONY_ROOT)/ueventd.sony.rc:root/ueventd.sony.rc \
+    $(SONY_ROOT)/yuga_gapps.sh:root/yuga_gapps.sh \
     $(SONY_ROOT)/yuga_reconf.sh:root/yuga_reconf.sh \
     $(SONY_ROOT)/yuga_recovery.sh:root/yuga_recovery.sh \
     $(SONY_ROOT)/recovery/ramdisk-recovery.cpio:root/recovery/ramdisk-recovery.cpio \
